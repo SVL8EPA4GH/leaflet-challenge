@@ -20,8 +20,9 @@ function createFeatures(earthquakeData) {
   // Give each feature a popup describing the place and time of the earthquake
   function onEachFeature(feature, layer) {
 
-    layer.circle({
-	radius:markerSize()
+    layer.circleMarker(feature.coordinates[0.1],{
+	radius:markerSize(feature.properties.mag),
+	color:"red"
 	}).bindPopup("<h3>" + feature.properties.place + "<hr>" + "Magnitute: " + feature.properties.mag +
       "</h3><hr><p>" + new Date(feature.properties.time) + "</p>");
   }
