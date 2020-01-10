@@ -10,10 +10,16 @@ d3.json(queryUrl, function(data) {
 
 function createFeatures(earthquakeData) {
 
+  // SVL: Define a function for marker size
+  // Marker size  is based on the magnitute of the earthquake
+  function markerSize(feature.properties.mag) {
+    return feature.properties.mag;
+  }
+
   // Define a function we want to run once for each feature in the features array
   // Give each feature a popup describing the place and time of the earthquake
   function onEachFeature(feature, layer) {
-    layer.bindPopup("<h3>" + feature.properties.place + "<hr>" + "Magnitute: " + feature.properties.mag +
+    layer.circle.bindPopup("<h3>" + feature.properties.place + "<hr>" + "Magnitute: " + feature.properties.mag +
       "</h3><hr><p>" + new Date(feature.properties.time) + "</p>");
   }
 
@@ -55,10 +61,7 @@ function createMap(earthquakes) {
     Earthquakes: earthquakes
   };
 
-  // SVL: Define a function for marker size
-  // Marker size  is based on the magnitute of the earthquake
-  function markerSize(feature.properties.mag) {
-    return feature.properties.mag;
+
   }
 
 
