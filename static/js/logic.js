@@ -66,7 +66,7 @@ var magMarkers = [];
  for (var i =0; i <features.length; i++) {
 
  magMarkers.push(
-L.circle(features(i).cooedinates, {
+L.circle(features(i).coordinates, {
   stroke: false,
   fillOpacity: 0.75,
   coloer: "white",
