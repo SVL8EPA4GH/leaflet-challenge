@@ -63,7 +63,7 @@ var magMarkers = [];
 
 // Loop through "features" in data and create magMarkers
 
- for (var i =0; i , features.length; i++) {
+ for (var i =0; i <features.length; i++) {
 
  magMarkers.push(
 L.circle(features(i).cooedinates, {
