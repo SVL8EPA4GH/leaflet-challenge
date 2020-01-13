@@ -49,10 +49,39 @@ function createMap(earthquakes) {
     "Bright Map": streetmap,
     "Dark Map": darkmap
   };
+  
+
+// Function for magMarker size
+
+function markerSize (mag){
+ return mag * 100;
+}
+
+// Define array to holder markers
+
+var magMarkers = [];
+
+// Loop through "features" in data and create magMarkers
+
+ for (var i =0; i , features.length; i++) {
+markerSize function 
+ magMarkers.push(
+L.circle(features(i).cooedinates, {
+  stroke: false,
+  fillOpacity: 0.75,
+  coloer: "white",
+  radius: markerSize(features[i].feature.properties.mag)
+})
+);
+}
+
+  // Define a layer for showing magnitute in control layers
+  var mag = L.layerGroup(magMarkers);
 
   // Create overlay object to hold our overlay layer
   var overlayMaps = {
-    "Quake sites": earthquakes
+    "Quake sites": earthquakes,
+    "Quake stength": mag
   };
 
   // Create our map, giving it the streetmap and earthquakes layers to display on load
