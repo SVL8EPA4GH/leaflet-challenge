@@ -4,7 +4,7 @@ var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_we
 
 
 // Grab the data with d3
-d3.json(url, function(response) {
+d3.json(queryUrl, function(response) {
 
   // Create a new marker cluster group
   var markers = L.markerClusterGroup();
@@ -155,7 +155,7 @@ var magnitute = L.layerGroup(magnitudeMarkers);
   // Create overlay object to hold our earthquaker overlay layer
   var overlayMaps = {
     Earthquakes: earthquakes
-    Earthquakes: magnitute
+   // Earthquakes: magnitute //SVL
   };
 
 

@@ -46,14 +46,22 @@ function createMap(earthquakes) {
 
   // Define a baseMaps object to hold our base layers
   var baseMaps = {
-    "Bright Map": streetmap,
+    "Street Map": streetmap,
     "Dark Map": darkmap
   };
 
   // Create overlay object to hold our overlay layer
   var overlayMaps = {
-    Quake sites: earthquakes
+    Earthquakes: earthquakes
   };
+
+  // SVL: Define a function for marker size
+  // Marker size  is based on the magnitute of the earthquake
+  function markerSize(feature.properties.mag) {
+    return feature.properties.mag;
+  }
+
+
 
   // Create our map, giving it the streetmap and earthquakes layers to display on load
   var myMap = L.map("map", {
